@@ -1,0 +1,23 @@
+{
+ "content": null, 
+ "creation": "2018-06-10 21:09:40.375035", 
+ "docstatus": 0, 
+ "doctype": "Page", 
+ "idx": 0, 
+ "modified": "2018-06-10 21:09:49.607106", 
+ "modified_by": "Administrator", 
+ "module": "Item Report", 
+ "name": "item-price-report", 
+ "owner": "Administrator", 
+ "page_name": "Item Price Report", 
+ "roles": [
+  {
+   "role": "All"
+  }
+ ], 
+ "script": null, 
+ "standard": "Yes", 
+ "style": null, 
+ "system_page": 0, 
+ "title": "Item Price Report"
+}

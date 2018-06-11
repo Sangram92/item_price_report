@@ -1,0 +1,32 @@
+<div class="report_body">
+	<table class="table">
+		<thead>
+			<tr>
+				<th><input class="check_all" type="checkbox"></th>
+				<th>Sr No.</th>
+				<th>Item Code</th>
+				<th>Selling/Buying</th>
+				<th>Price List</th>
+				<th>Rate</th>
+			</tr>
+		</thead>
+		<tbody>
+            {% $.each(data, function(idx, item) { %}
+				<tr>
+					<td><input class="check_act" type="checkbox"></td>
+					<td>{{ idx + 1 }}</td>
+					<td>{{ item.item_code }}</td>
+					<td>{{ item.selling_buying }}</td>
+					<td>{{ item.price_list }}</td>
+					<td>{{ item.price_list_rate }}</td>
+				</tr>
+			{% }); %}
+		</tbody>
+	</table>
+</div>
+
+<style>
+	.report_body {
+		padding: 20px;
+	}
+</style>
