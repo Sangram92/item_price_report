@@ -1,34 +1,16 @@
 <div class="print_body">
-	<div class="box box_left">
-		<b>Item Code :</b> Test Item<br>
-		<b>Selling Buying :</b> Selling<br>
-		<b>Price List :</b> Standard Selling<br>
-		<b>Rate :</b> 230<br>
-	</div>
-	<div class="box box_right">
-		<b>Item Code :</b> Test Item<br>
-		<b>Selling Buying :</b> Selling<br>
-		<b>Price List :</b> Standard Selling<br>
-		<b>Rate :</b> 230<br>
-	</div>
-	<div class="box box_left">
-		<b>Item Code :</b> Test Item<br>
-		<b>Selling Buying :</b> Selling<br>
-		<b>Price List :</b> Standard Selling<br>
-		<b>Rate :</b> 230<br>
-	</div>
-	<div class="box box_right">
-		<b>Item Code :</b> Test Item<br>
-		<b>Selling Buying :</b> Selling<br>
-		<b>Price List :</b> Standard Selling<br>
-		<b>Rate :</b> 230<br>
-	</div>
-	<div class="box box_left">
-		<b>Item Code :</b> Test Item<br>
-		<b>Selling Buying :</b> Selling<br>
-		<b>Price List :</b> Standard Selling<br>
-		<b>Rate :</b> 230<br>
-	</div>
+	{% $.each(data, function(idx, item) { %}
+		{% if(selected.indexOf(item.name) != -1) { %}
+			{% if(idx%2) { %}
+				<div class="box box_left">
+			{% } else { %}
+				<div class="box box_left">
+			{% } %}
+			<b>{{ item.item_code }}</b><br>
+			<b>{{ item.price_list_rate }}</b><br>
+			</div>
+		{% } %}
+	{% }); %}
 </div>
 
 <style>
@@ -36,6 +18,7 @@
 		padding: 10px;
 	}
 	.box {
+		text-align: center;
 		padding: 15px;
 		margin: 10px;
 		width: 40%;

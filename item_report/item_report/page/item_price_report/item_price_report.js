@@ -17,10 +17,17 @@ frappe.ItemPriceReport = Class.extend({
 			method: "item_report.item_report.page.item_price_report.item_price_report.get_item_prices",
 			callback: function(r) {
 				if (!r.exc && r.message) {
-					
+					me.report_data = r.message
 					$(frappe.render_template("item_price_report", {'data': r.message})).appendTo(me.page.main);
+					me.check_all()
 				}
 			}
+		})
+	},
+
+	check_all: function() {
+		$('.check_all').on("click", function() {
+			$('.check_act').prop('checked', this.checked);
 		})
 	},
 
@@ -37,7 +44,12 @@ frappe.ItemPriceReport = Class.extend({
 
 	print_report: function() {
 		var me = this;
-		var html = frappe.render_template("print_item_price", {'data': me.data})
+		var selected_item = [];
+		$.each($('.check_act:checked'), function(i, act){
+			var item_price = $(this).attr('data-id');
+			selected_item.push(item_price)
+		})
+		var html = frappe.render_template("print_item_price", {'data': me.report_data, 'selected': selected_item})
 		var w = window.open();
 		w.document.write(html);
 	}
